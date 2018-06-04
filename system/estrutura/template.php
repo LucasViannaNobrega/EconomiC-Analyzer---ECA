@@ -155,6 +155,18 @@ class Template
                         <p>SubFunções</p>
                     </a>
                 </li>
+                <li>
+                    <a href=\"tb_source.php\">
+                        <i class=\"ti-hummer\"></i>
+                        <p>Fonte</p>
+                    </a>
+                </li>
+                <li>
+                    <a href=\"tb_payments.php\">
+                        <i class=\"ti-money\"></i>
+                        <p>Pagamentos</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>";

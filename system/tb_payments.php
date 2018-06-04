@@ -26,6 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tb_beneficiaries_id_beneficiaries = (isset($_POST["beneficiaries"]) && $_POST["beneficiaries"] != null) ? $_POST["beneficiaries"] : "";
     $tb_source_id_source = (isset($_POST["source"]) && $_POST["source"] != null) ? $_POST["source"] : "";
     $tb_files_id_file = (isset($_POST["file"]) && $_POST["file"] != null) ? $_POST["file"] : "";
+    $int_month = (isset($_POST["month"]) && $_POST["month"] != null) ? $_POST["month"] : "";
+    $int_year= (isset($_POST["year"]) && $_POST["year"] != null) ? $_POST["year"] : "";
     $db_value = (isset($_POST["value"]) && $_POST["value"] != null) ? $_POST["value"] : "";
 } else if (!isset($id)) {
     // Se não se não foi setado nenhum valor para variável $id
@@ -38,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tb_beneficiaries_id_beneficiaries = NULL;
     $tb_source_id_source = NULL;
     $tb_files_id_file = NULL;
+    $int_month = NULL;
+    $int_year = NULL;
     $db_value = NULL;
 }
 if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "upd" && $id_payment != "") {
@@ -51,6 +55,8 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "upd" && $id_payment != "") {
     $tb_beneficiaries_id_beneficiaries = $resultado->getTbBeneficiariesIdBeneficiaries();
     $tb_source_id_source = $resultado->getTbSourceIdSource();
     $tb_files_id_file =$resultado->getTbFilesIdFile();
+    $int_month =$resultado->getIntMonth();
+    $int_year =$resultado->getIntYear();
     $db_value = $resultado->getDbValue();
 
 }
@@ -66,10 +72,12 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && $tb_functon_id_func
     $tb_beneficiaries_id_beneficiaries = null;
     $tb_source_id_source = null;
     $tb_files_id_file = null;
+    $int_month = null;
+    $int_year = null;
     $db_value = null;
 }
 if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id_payment != "") {
-    $tb_payments = new tb_payments($id_payment, '','','','','','','','','');
+    $tb_payments = new tb_payments($id_payment, '','','','','','','','','','','');
     $msg = $object->remover($tb_payments);
     $id_payment = null;
 }
@@ -240,6 +248,16 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id_payment != "") {
                                 <input type="submit" VALUE="Cadastrar"/>
                                 <hr>
                             </form>
+                            Mês:
+                            <input type="text" size="5" name="value" value="<?php
+                            // Preenche o code no campo code com um valor "value"
+                            echo (isset($int_month) && ($int_month != null || $int_month != "")) ? $int_month : '';
+                            ?>" />
+                            Ano:
+                            <input type="text" size="10" name="value" value="<?php
+                            // Preenche o code no campo code com um valor "value"
+                            echo (isset($int_year) && ($int_year != null || $int_year != "")) ? $int_year : '';
+                            ?>" />
                             Valor:
                             <input type="text" size="10" name="value" value="<?php
                             // Preenche o code no campo code com um valor "value"

@@ -2,12 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: lucas.vianna
- * Date: 09/05/2018
- * Time: 16:25
+ * Date: 25/05/2018
+ * Time: 10:21
  */
 
 require_once "conection.php";
-require_once "classes/tb_beneficiaries.php";
+require_once "../classes/tb_beneficiaries.php";
+
 
 class tb_beneficiariesDAO
 {
@@ -148,4 +149,42 @@ class tb_beneficiariesDAO
      ";
         endif;
     }
+
+    public function findAll()
+    {
+        global $pdo;
+        try {
+            $statement = $pdo->prepare('SELECT id_beneficiaries, str_nis,str_name_person FROM tb_beneficiaries ORDER BY str_name_person');
+            if ($statement->execute()) {
+                $lista = $statement->fetchAll(PDO::FETCH_OBJ);
+                return $lista;
+            }else {
+                throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
+            }
+        }catch (PDOException $erro) {
+            return "Erro: " . $erro->getMessage();
+        }
+    }
+
+    public function findId($id)
+    {
+        $beneficiaries = new tb_beneficiaries();
+        global $pdo;
+        try {
+            $statement = $pdo->prepare("SELECT id_beneficiaries, str_nis, str_name_person FROM tb_beneficiaries WHERE id_beneficiaries = $id");
+            if ($statement->execute()) {
+                $rs = $statement->fetch(PDO::FETCH_OBJ);
+                $beneficiaries->setIdBeneficiaries($rs->id_beneficiaries);
+                $beneficiaries->setStrNis($rs->str_nis);
+                $beneficiaries->setStrNamePerson($rs->str_name_person);
+
+                return $beneficiaries;
+            } else {
+                throw new PDOException("<script> alert('Erro: Não foi possível executar a declaração sql'); </script>");
+            }
+        } catch (PDOException $erro) {
+            return "Erro: " . $erro->getMessage();
+        }
+    }
+
 }

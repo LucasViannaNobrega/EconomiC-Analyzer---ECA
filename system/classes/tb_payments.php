@@ -17,6 +17,8 @@ class tb_payments
     private $tb_beneficiaries_id_beneficiaries;
     private $tb_source_id_source;
     private $tb_files_id_file;
+    private $int_month;
+    private $int_year;
     private $db_value;
 
     /**
@@ -30,9 +32,11 @@ class tb_payments
      * @param $tb_beneficiaries_id_beneficiaries
      * @param $tb_source_id_source
      * @param $tb_files_id_file
+     * @param $int_month
+     * @param $int_year
      * @param $db_value
      */
-    public function __construct($id_payment, $tb_city_id_city, $tb_functon_id_function, $tb_subfunction_id_subfunction, $tb_program_id_program, $tb_action_id_action, $tb_beneficiaries_id_beneficiaries, $tb_source_id_source, $tb_files_id_file, $db_value)
+    public function __construct($id_payment, $tb_city_id_city, $tb_functon_id_function, $tb_subfunction_id_subfunction, $tb_program_id_program, $tb_action_id_action, $tb_beneficiaries_id_beneficiaries, $tb_source_id_source, $tb_files_id_file, $int_month, $int_year, $db_value)
     {
         $this->id_payment = $id_payment;
         $this->tb_city_id_city = $tb_city_id_city;
@@ -43,6 +47,8 @@ class tb_payments
         $this->tb_beneficiaries_id_beneficiaries = $tb_beneficiaries_id_beneficiaries;
         $this->tb_source_id_source = $tb_source_id_source;
         $this->tb_files_id_file = $tb_files_id_file;
+        $this->int_month = $int_month;
+        $this->int_year = $int_year;
         $this->db_value = $db_value;
     }
 
@@ -193,6 +199,38 @@ class tb_payments
     /**
      * @return mixed
      */
+    public function getIntMonth()
+    {
+        return $this->int_month;
+    }
+
+    /**
+     * @param mixed $int_month
+     */
+    public function setIntMonth($int_month): void
+    {
+        $this->int_month = $int_month;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIntYear()
+    {
+        return $this->int_year;
+    }
+
+    /**
+     * @param mixed $int_year
+     */
+    public function setIntYear($int_year): void
+    {
+        $this->int_year = $int_year;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getDbValue()
     {
         return $this->db_value;
@@ -205,4 +243,6 @@ class tb_payments
     {
         $this->db_value = $db_value;
     }
+
+
 }
