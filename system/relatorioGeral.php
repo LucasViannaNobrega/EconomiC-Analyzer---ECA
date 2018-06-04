@@ -1,6 +1,6 @@
 <?php
 
-require_once "classes/template.php";
+require_once "estrutura/template.php";
 
 $template = new Template();
 
@@ -24,13 +24,13 @@ $template->mainpanel();
                             Tipo de relatorio:
                             <select class="form-control" name="relatorios">
                                 <option value="relatorioNulo">Selecione um relatorio</option>
-                                <option value="relatorio01">Lista de todos os beneficiários</option>
-                                <option value="relatorio02">Lista de todos os beneficiários juntamente com a cidade</option>
-                                <option value="relatorio03">Lista com todos os pagamentos</option>
-                                <option value="relatorio04">Lista com o número de beneficiários juntamente com cidade e o valor pago por mês</option>
-                                <option value="relatorio05">Lista com a soma de vezes que o beneficiário ganhou auxiloi juntamente com os meses e os valores</option>
-                                <option value="relatorio06">Lista com o total de pagamentos por região</option>
-                                <option value="relatorio07">Lista com o total de pagamentos por estado</option>
+                                <option value="relatorio01">Relatório de beneficiários</option>
+                                <option value="relatorio02">Relatório de beneficiários por cidade</option>
+                                <option value="relatorio03">Relatório de pagamentos</option>
+                                <option value="relatorio04">Relatório de quantidade de beneficiários e valor total pago por cidade</option>
+                                <option value="relatorio05">Relatório de quantidade/valor de pagamentos por beneficiarios/mês</option>
+                                <option value="relatorio06">Relatório de pagamentos por região</option>
+                                <option value="relatorio07">Relatório de pagamentos por estado</option>
                             </select>
                             <br/>
                             <input class="btn btn-success" type="submit" value="GERAR RELATORIO">

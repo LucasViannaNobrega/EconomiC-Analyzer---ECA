@@ -17,7 +17,10 @@ $data = $dao ->dataAtual();
 $hr = $dao ->horaAtual();
 
 $html = "<p>Data/Hora Base: $data - $hr</p>";
-$html .= "<table border='1' cellspacing='3' cellpadding='3' >";
+$html .= "<table border='1' cellspacing='0' cellpadding='2' bordercolor='666633'>";
+$html .= "<tr>
+            <th colspan='5' align='center'>TOTAL DE PAGAMENTOS POR ESTADO</th>
+        </tr>";
 $html .= "<tr>
             <th>NOME</th>
             <th>QUANTIDADE DE PAGAMENTOS</th>

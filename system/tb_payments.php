@@ -245,29 +245,29 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id_payment != "") {
                                     }
                                     ?>
                                 </select>
+                                Mês:
+                                <input type="text" size="5" name="value" value="<?php
+                                // Preenche o code no campo code com um valor "value"
+                                echo (isset($int_month) && ($int_month != null || $int_month != "")) ? $int_month : '';
+                                ?>" />
+                                Ano:
+                                <input type="text" size="10" name="value" value="<?php
+                                // Preenche o code no campo code com um valor "value"
+                                echo (isset($int_year) && ($int_year != null || $int_year != "")) ? $int_year : '';
+                                ?>" />
+                                Valor:
+                                <input type="text" size="10" name="value" value="<?php
+                                // Preenche o code no campo code com um valor "value"
+                                echo (isset($db_value) && ($db_value != null || $db_value != "")) ? $db_value : '';
+                                ?>" />
+                                <?php
+                                echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
+                                //chamada a paginação
+                                $object->tabelapaginada();
+                                ?>
                                 <input type="submit" VALUE="Cadastrar"/>
                                 <hr>
                             </form>
-                            Mês:
-                            <input type="text" size="5" name="value" value="<?php
-                            // Preenche o code no campo code com um valor "value"
-                            echo (isset($int_month) && ($int_month != null || $int_month != "")) ? $int_month : '';
-                            ?>" />
-                            Ano:
-                            <input type="text" size="10" name="value" value="<?php
-                            // Preenche o code no campo code com um valor "value"
-                            echo (isset($int_year) && ($int_year != null || $int_year != "")) ? $int_year : '';
-                            ?>" />
-                            Valor:
-                            <input type="text" size="10" name="value" value="<?php
-                            // Preenche o code no campo code com um valor "value"
-                            echo (isset($db_value) && ($db_value != null || $db_value != "")) ? $db_value : '';
-                            ?>" />
-                            <?php
-                            echo (isset($msg) && ($msg != null || $msg != "")) ? $msg : '';
-                            //chamada a paginação
-                            $object->tabelapaginada();
-                            ?>
                         </div>
                     </div>
                 </div>

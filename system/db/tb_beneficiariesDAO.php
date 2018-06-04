@@ -7,7 +7,7 @@
  */
 
 require_once "conection.php";
-require_once "../classes/tb_beneficiaries.php";
+require_once "classes/tb_beneficiaries.php";
 
 
 class tb_beneficiariesDAO
