@@ -56,7 +56,7 @@ $grafico->SetDataColors(
 );
 
 # Main plot title:
-$grafico->SetTitle("Values per state");
+$grafico->SetTitle("Total de valores pagos por estado");
 
 # Build a legend from our data array.
 # Each call to SetLegend makes one line as "label: value".

@@ -16,7 +16,7 @@ $grafico->SetTitle(utf8_decode("Beneficiários por Mes e Ano"));
 //$grafico->SetTitle("Beneficiários por Mês e Ano");
 $grafico->SetXTitle(utf8_decode("Mês e Ano"));
 
-$grafico->SetYTitle(utf8_decode("Monthly Beneficiaries"));
+$grafico->SetYTitle(utf8_decode("Número Beneficiários"));
 
 $query = "SELECT count(tb_beneficiaries_id_beneficiaries )as qtde, int_month as mes, int_year as ano FROM tb_payments group by int_month, int_year order by int_year asc, int_month asc;";
 $statement = $pdo->prepare($query);
