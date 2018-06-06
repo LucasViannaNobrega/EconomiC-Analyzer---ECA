@@ -7,6 +7,7 @@
  */
 require_once "../grafico/PHPlot/phplot/phplot.php";
 require_once "../db/conection.php";
+require_once "../grafico/mem_image.php";
 
 $query = "SELECT s.str_uf estado, sum(p.db_value) valor
 FROM tb_payments p 
@@ -64,4 +65,12 @@ foreach ($data as $row)
 # Place the legend in the upper left corner:
 $grafico->SetLegendPixels(5, 5);
 
+//Disable image output
+$grafico->SetPrintImage(false);
+//Draw the graph
 $grafico->DrawGraph();
+
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();

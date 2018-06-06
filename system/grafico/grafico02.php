@@ -7,6 +7,8 @@
  */
 require_once "../grafico/PHPlot/phplot/phplot.php";
 require_once "../db/conection.php";
+require_once "../grafico/mem_image.php";
+
 
 
 $query = "SELECT s.str_name estado, sum(p.tb_beneficiaries_id_beneficiaries) qtde, p.int_month mes
@@ -60,6 +62,14 @@ $grafico->SetYTickPos('none');
 # Note that this automatically calls SetYLabelType('data').
 $grafico->SetPrecisionY(1);
 
+//Disable image output
+$grafico->SetPrintImage(false);
+//Draw the graph
 $grafico->DrawGraph();
+
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();
 return $grafico->EncodeImage('base64');
 

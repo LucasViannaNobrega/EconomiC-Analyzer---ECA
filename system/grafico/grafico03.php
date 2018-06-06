@@ -7,6 +7,7 @@
  */
 require_once "../grafico/PHPlot/phplot/phplot.php";
 require_once "../db/conection.php";
+require_once "../grafico/mem_image.php";
 
 #Instancia o objeto e setando o tamanho do grafico na tela
 $grafico = new \PHPlot(900,300);
@@ -39,5 +40,13 @@ $grafico->SetDataValues($data);
 #Neste caso, usariamos o gráfico em barras
 $grafico->SetPlotType("bars");
 #Exibimos o gráfico
+//Disable image output
+$grafico->SetPrintImage(false);
+//Draw the graph
 $grafico->DrawGraph();
+
+$pdf = new PDF_MemImage();
+$pdf->AddPage();
+$pdf->GDImage($grafico->img,30,20,140);
+$pdf->Output();
 
