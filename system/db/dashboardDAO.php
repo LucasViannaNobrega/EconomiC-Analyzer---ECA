@@ -8,7 +8,7 @@
 require_once "db/conection.php";
 
 class dashboardDAO {
-    
+
     public function totalPagamento()
     {
         global $pdo;
@@ -28,7 +28,7 @@ class dashboardDAO {
             return "Erro: " . $erro->getMessage();
         }
     }
-    
+
     public function somaPagAtual()
     {
         global $pdo;

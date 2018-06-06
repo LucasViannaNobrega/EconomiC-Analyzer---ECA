@@ -15,7 +15,7 @@ class tb_paymentsDAO
         global $pdo;
         try {
             $statement = $pdo->prepare("DELETE FROM tb_payments WHERE id_payment = :id");
-            $statement->bindValue(":id", $tb_payments->getIdSPayment());
+            $statement->bindValue(":id", $tb_payments->getIdPayment());
             if ($statement->execute()) {
                 return "Registo foi excluído com êxito";
             } else {
