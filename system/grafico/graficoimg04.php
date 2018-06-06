@@ -1,10 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: tassio
- * Date: 09/01/2018
- * Time: 09:49
+ * User: lucas.vianna
+ * Date: 06/06/2018
+ * Time: 14:40
  */
+
 require_once "../grafico/PHPlot/phplot/phplot.php";
 require_once "../db/conection.php";
 require_once "../grafico/mem_image.php";
@@ -66,7 +67,7 @@ foreach ($data as $row)
 $grafico->SetLegendPixels(5, 5);
 
 //Disable image output
-$grafico->SetPrintImage(false);
+$grafico->SetPrintImage(true);
 //Draw the graph
 $grafico->DrawGraph();
 
